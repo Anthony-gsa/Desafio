@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Busca de Imoveis";
+}
+<h1>@ViewData["Title"]</h1>
+<!DOCTYPE html>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd
+}
+</style>
+
+@model List<RetornoImoveis>
+
+
+<table class="table table-hover">
+    @if (Model.Count > 0)
+    {
+        <thead>
+            <tr>
+                <th>Cep</th>
+                <th>Estado</th>
+                <th>Cidade</th>
+                <th>Bairro</th>
+                <th>Numero</th>
+                <th>Complemento</th>
+                <th>Tipo de Imovel</th>
+                <th>Valor da Venda</th>
+                <th>Valor de Alocação</th>
+                <th>Área Construida</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Cep</td>
+                    <td>@item.Estado</td>
+                    <td>@item.Cidade</td>
+                    <td>@item.Bairro</td>
+                    <td>@item.Numero</td>
+                    <td>@item.Complemento</td>
+                    <td>@item.TipoImovel</td>
+                    <td>@item.ValorVenda</td>
+                    <td>@item.ValorLocacao</td>
+                    <td>@item.AreaConstruida</td>
+                </tr>
+            }
+        </tbody>
+    }
+    else
+    {
+    <thead><tr><th><h1>Não há imoveis cadastrados</h1></th></tr></thead>
+    }
+</table>
